@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FolderOpen, Star } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getGitHubStars } from "@/lib/github";
+import { MobileMenu } from "./mobile-menu";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -21,7 +22,8 @@ export async function Navbar() {
           <span className="font-display text-lg italic">{siteConfig.name}</span>
         </Link>
 
-        <div className="flex items-center gap-6">
+        {/* Desktop nav */}
+        <div className="hidden sm:flex items-center gap-6">
           <Link
             href="/"
             className="text-sm text-text-secondary hover:text-text-primary transition-colors"
@@ -51,6 +53,9 @@ export async function Navbar() {
             <span className="text-xs font-medium">{stars ?? 0}</span>
           </a>
         </div>
+
+        {/* Mobile hamburger */}
+        <MobileMenu stars={stars} />
       </div>
     </nav>
   );

@@ -29,8 +29,8 @@ export function TerminalBlock({ command, label }: TerminalBlockProps) {
           <span className="text-xs text-white/30 font-code">{label}</span>
         </div>
       )}
-      <div className="flex items-center justify-between px-4 py-3">
-        <code className="text-sm text-white/80 font-code">
+      <div className="flex items-start justify-between gap-2 px-4 py-3">
+        <code className="text-xs sm:text-sm text-white/80 font-code break-all">
           <span className="text-white/40">$ </span>
           {command}
         </code>

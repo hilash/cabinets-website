@@ -180,8 +180,8 @@ export function CabinetOrgChart({ entry }: CabinetOrgChartProps) {
     maxCols <= 3 ? "grid-cols-3" : "grid-cols-4";
 
   return (
-    <div className="rounded-xl border border-border bg-bg-card p-6 overflow-x-auto">
-      <div className="w-full min-w-[400px] max-w-[720px] mx-auto">
+    <div className="rounded-xl border border-border bg-bg-card p-3 sm:p-6 overflow-x-auto">
+      <div className="w-full min-w-[320px] max-w-[720px] mx-auto">
         {/* Root */}
         <div className="flex justify-center">
           <RootNode name={entry.meta.name} childCount={entry.children.length} />

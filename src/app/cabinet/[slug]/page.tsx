@@ -57,10 +57,10 @@ export default async function CabinetDetailPage({ params }: PageProps) {
               Back to registry
             </Link>
 
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <h1 className="font-sans text-3xl font-bold text-text-primary sm:text-4xl">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
+                  <h1 className="font-sans text-2xl font-bold text-text-primary sm:text-4xl">
                     {entry.meta.name}
                   </h1>
                   <span className="rounded-full border border-border px-2.5 py-0.5 text-xs font-code text-text-tertiary">
@@ -82,7 +82,7 @@ export default async function CabinetDetailPage({ params }: PageProps) {
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-5 mt-6 text-sm text-text-tertiary">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-6 text-sm text-text-tertiary">
               <span className="flex items-center gap-1.5">
                 <Bot className="h-4 w-4" />
                 {entry.stats.totalAgents} agents

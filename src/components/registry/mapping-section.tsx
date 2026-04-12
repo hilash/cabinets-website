@@ -61,7 +61,7 @@ function CabinetDrawer({
         className="w-full group"
       >
         <div
-          className="relative flex items-center justify-between rounded-t-xl border border-b-0 px-5 py-3.5 transition-all duration-500 cursor-pointer"
+          className="relative flex items-center justify-between rounded-t-xl border border-b-0 px-3 sm:px-5 py-3 sm:py-3.5 transition-all duration-500 cursor-pointer"
           style={{
             borderColor: open ? "rgba(139,94,60,0.3)" : "var(--border-dark)",
             backgroundColor: open ? "var(--accent-bg)" : "var(--bg-warm)",
@@ -74,25 +74,25 @@ function CabinetDrawer({
 
           {/* Before label */}
           <div
-            className="flex items-center gap-2.5 transition-opacity duration-500"
+            className="flex items-center gap-2 sm:gap-2.5 transition-opacity duration-500"
             style={{ opacity: open ? 0.4 : 1 }}
           >
-            <HumanIcon className="w-5 h-5 text-text-secondary" />
-            <span className="font-display text-lg italic text-text-primary">
+            <HumanIcon className="w-4 h-4 sm:w-5 sm:h-5 text-text-secondary" />
+            <span className="font-display text-base sm:text-lg italic text-text-primary">
               {humanLabel}
             </span>
           </div>
 
           {/* Arrow / transition indicator */}
           <div
-            className="flex items-center gap-2.5 transition-all duration-500"
+            className="flex items-center gap-2 sm:gap-2.5 transition-all duration-500"
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateX(0)" : "translateX(-8px)",
             }}
           >
-            <AiIcon className="w-5 h-5 text-accent" />
-            <span className="font-display text-lg italic text-accent-warm">
+            <AiIcon className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+            <span className="font-display text-base sm:text-lg italic text-accent-warm">
               {aiLabel}
             </span>
           </div>
@@ -108,11 +108,11 @@ function CabinetDrawer({
           borderColor: open ? "rgba(139,94,60,0.3)" : "var(--border-dark)",
         }}
       >
-        <div className="px-5 py-4 bg-bg-card">
+        <div className="px-3 sm:px-5 py-4 bg-bg-card">
           {/* Two columns: was → now */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4">
             {/* Was */}
-            <div>
+            <div className="min-w-0">
               <p className="text-[9px] font-code uppercase tracking-[0.15em] text-text-tertiary mb-2 line-through decoration-text-tertiary/40">
                 was
               </p>
@@ -120,17 +120,17 @@ function CabinetDrawer({
                 {humanItems.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 rounded-lg border border-border bg-bg px-2.5 py-1.5 w-fit transition-all duration-500"
+                    className="flex items-center gap-1.5 sm:gap-2 rounded-lg border border-border bg-bg px-2 py-1.5 transition-all duration-500"
                     style={{
                       transitionDelay: `${i * 80 + 200}ms`,
                       transform: open ? "translateX(0)" : "translateX(-12px)",
                       opacity: open ? 0.8 : 0,
                     }}
                   >
-                    <item.icon className="w-3.5 h-3.5 text-text-secondary shrink-0" />
+                    <item.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-text-secondary shrink-0" />
                     <div className="min-w-0">
-                      <p className="text-[11px] text-text-primary truncate">{item.label}</p>
-                      {item.sub && <p className="text-[9px] text-text-secondary truncate">{item.sub}</p>}
+                      <p className="text-[10px] sm:text-[11px] text-text-primary truncate">{item.label}</p>
+                      {item.sub && <p className="text-[8px] sm:text-[9px] text-text-secondary truncate">{item.sub}</p>}
                     </div>
                   </div>
                 ))}
@@ -138,7 +138,7 @@ function CabinetDrawer({
             </div>
 
             {/* Now */}
-            <div>
+            <div className="min-w-0">
               <p className="text-[9px] font-code uppercase tracking-[0.15em] text-accent font-semibold mb-2">
                 now
               </p>
@@ -146,7 +146,7 @@ function CabinetDrawer({
                 {aiItems.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 rounded-lg border bg-bg-card px-2.5 py-1.5 transition-all duration-500"
+                    className="flex items-center gap-1.5 sm:gap-2 rounded-lg border bg-bg-card px-2 py-1.5 transition-all duration-500"
                     style={{
                       borderColor: "rgba(139,94,60,0.2)",
                       transitionDelay: `${i * 80 + 300}ms`,
@@ -154,12 +154,12 @@ function CabinetDrawer({
                       opacity: open ? 1 : 0,
                     }}
                   >
-                    <item.icon className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <item.icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-[11px] font-medium text-text-primary truncate">{item.label}</p>
-                      {item.sub && <p className="text-[9px] text-accent/50 truncate font-code">{item.sub}</p>}
+                      <p className="text-[10px] sm:text-[11px] font-medium text-text-primary truncate">{item.label}</p>
+                      {item.sub && <p className="text-[8px] sm:text-[9px] text-accent/50 truncate font-code">{item.sub}</p>}
                     </div>
-                    {item.pulse && <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />}
+                    {item.pulse && <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />}
                   </div>
                 ))}
               </div>

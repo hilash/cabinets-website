@@ -421,13 +421,12 @@ export function TranspositionHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative border-b border-border"
-      style={{ height: "300vh" }}
+      className="relative border-b border-border h-[200vh] md:h-[300vh]"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <div className="dot-grid absolute inset-0 opacity-25" />
 
-        <div className="relative h-full flex items-center px-6 py-4">
+        <div className="relative h-full flex items-center px-4 sm:px-6 py-4">
           <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-center lg:gap-10">
 
             {/* ── LEFT: Heading + terminal ── */}
@@ -436,7 +435,7 @@ export function TranspositionHero() {
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                 Open directory
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display text-text-primary leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-display text-text-primary leading-[1.1] tracking-tight">
                 Plug-and-play
                 <br />
                 <em className="text-accent">AI teams</em> for
@@ -448,7 +447,7 @@ export function TranspositionHero() {
                 Clone a directory. Run a company.
               </p>
 
-              <div className="mt-6 terminal-chrome max-w-[360px]">
+              <div className="mt-6 terminal-chrome max-w-[360px] w-full">
                 <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
@@ -467,27 +466,27 @@ export function TranspositionHero() {
             </div>
 
             {/* ── RIGHT: Stats + title + org tree ── */}
-            <div className="flex flex-col items-center lg:flex-1 lg:min-w-0">
+            <div className="flex flex-col items-center lg:flex-1 lg:min-w-0 mt-6 lg:mt-0">
               {/* Stats — no container, display font */}
-              <div className="flex items-end justify-center gap-6 mb-3">
+              <div className="flex items-end justify-center gap-4 sm:gap-6 mb-3">
                 <StatCounter label="Monthly cost" humanValue={180000} aiValue={1400} prefix="$" progress={progress} format="compact" better="lower" />
                 <StatCounter label="Hrs / week" humanValue={280} aiValue={1176} progress={progress} format="number" better="higher" />
                 <StatCounter label="Tasks / week" humanValue={50} aiValue={5000} progress={progress} format="number" better="higher" />
               </div>
 
               {/* Mode title — much bigger */}
-              <div className="flex items-center gap-3 mt-6 mb-8" style={{ perspective: "800px" }}>
+              <div className="flex items-center gap-3 mt-4 sm:mt-6 mb-6 sm:mb-8" style={{ perspective: "800px" }}>
                 <div
                   className="inline-block transition-transform duration-700 relative"
                   style={{ transformStyle: "preserve-3d", transform: isAI ? "rotateX(180deg)" : "rotateX(0deg)" }}
                 >
-                  <div className="flex items-center justify-center gap-3" style={{ backfaceVisibility: "hidden" }}>
-                    <Users className="w-7 h-7 text-text-secondary" />
-                    <span className="font-display text-3xl sm:text-4xl italic text-text-primary">Human Company</span>
+                  <div className="flex items-center justify-center gap-2 sm:gap-3" style={{ backfaceVisibility: "hidden" }}>
+                    <Users className="w-5 h-5 sm:w-7 sm:h-7 text-text-secondary" />
+                    <span className="font-display text-2xl sm:text-4xl italic text-text-primary">Human Company</span>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center gap-3" style={{ backfaceVisibility: "hidden", transform: "rotateX(180deg)" }}>
-                    <FolderTree className="w-7 h-7 text-accent" />
-                    <span className="font-display text-3xl sm:text-4xl italic text-accent-warm">AI Company</span>
+                  <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3" style={{ backfaceVisibility: "hidden", transform: "rotateX(180deg)" }}>
+                    <FolderTree className="w-5 h-5 sm:w-7 sm:h-7 text-accent" />
+                    <span className="font-display text-2xl sm:text-4xl italic text-accent-warm">AI Company</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -507,8 +506,8 @@ export function TranspositionHero() {
                 </div>
               </div>
 
-              {/* The org tree */}
-              <div className="w-full max-w-[540px] mx-auto">
+              {/* The org tree — hidden on mobile, too complex for small screens */}
+              <div className="hidden md:block w-full max-w-[540px] mx-auto">
                 {/* CEO */}
                 <div className="max-w-[175px] mx-auto">
                   <FlipCard
