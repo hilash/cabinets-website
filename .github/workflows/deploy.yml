@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
-      - name: Clone public cabinet registry
-        run: git clone https://github.com/${{ github.repository_owner }}/cabinets.git registry/
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/cabinets
+          path: registry
 
       - uses: actions/setup-node@v4
         with:
