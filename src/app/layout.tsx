@@ -30,11 +30,31 @@ export const metadata: Metadata = {
   title: "Cabinet Registry — Browse & Install Cabinet Templates",
   description:
     "A public registry of Cabinet templates — portable, file-system native operating units for AI-powered business functions. Browse, explore, and install ready-made cabinets.",
+  icons: {
+    icon: "/cabinet-icon.png",
+    apple: "/cabinet-icon.png",
+  },
   openGraph: {
     title: "Cabinet Registry — Browse & Install Cabinet Templates",
     description:
       "Browse and install portable cabinet templates for AI-powered business operations.",
     type: "website",
+    url: "https://cabinets.sh",
+    images: [
+      {
+        url: "https://cabinets.sh/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Cabinet Registry — Browse & Install Cabinet Templates",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cabinet Registry — Browse & Install Cabinet Templates",
+    description:
+      "Browse and install portable cabinet templates for AI-powered business operations.",
+    images: ["https://cabinets.sh/og.png"],
   },
 };
 
