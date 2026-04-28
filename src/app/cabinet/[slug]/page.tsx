@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Bot, Clock, FolderTree, FileText } from "lucide-react";
 import { getAllSlugs, getEntry } from "@/lib/registry";
 import { Navbar } from "@/components/layout/navbar";
@@ -46,16 +47,30 @@ export default async function CabinetDetailPage({ params }: PageProps) {
       <Navbar />
 
       <main className="flex-1">
-        {/* Header */}
+        {/* Header with cover hero */}
         <section className="border-b border-border bg-bg-warm">
-          <div className="mx-auto max-w-5xl px-4 py-10">
+          <div className="mx-auto max-w-5xl px-4 pt-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-sm text-text-tertiary hover:text-accent transition-colors mb-6"
+              className="inline-flex items-center gap-1.5 text-sm text-text-tertiary hover:text-accent transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to registry
             </Link>
+          </div>
+          <div className="mx-auto max-w-5xl px-4 pt-6">
+            <div className="relative aspect-[16/9] sm:aspect-[16/6] w-full overflow-hidden rounded-xl border border-border bg-bg-card">
+              <Image
+                src={`/covers/${entry.slug}.jpg`}
+                alt={entry.meta.name}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="mx-auto max-w-5xl px-4 py-10">
 
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">

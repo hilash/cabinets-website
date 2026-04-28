@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Bot, Clock, FolderTree, FileText } from "lucide-react";
 import { TagBadge } from "@/components/ui/tag-badge";
 import { StarButton } from "./star-button";
@@ -14,8 +15,18 @@ export function CabinetCard({ entry }: CabinetCardProps) {
   return (
     <Link
       href={`/cabinet/${entry.slug}`}
-      className="block bg-bg-card border border-border rounded-xl card-hover p-6"
+      className="block bg-bg-card border border-border rounded-xl card-hover overflow-hidden"
     >
+      <div className="relative aspect-[16/9] w-full bg-bg-warm">
+        <Image
+          src={`/covers/${entry.slug}.jpg`}
+          alt={entry.meta.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="p-6">
       <div className="flex items-start justify-between gap-2 mb-3">
         <div className="flex items-center gap-2.5">
           {firstEmoji && <span className="text-xl">{firstEmoji}</span>}
@@ -57,6 +68,7 @@ export function CabinetCard({ entry }: CabinetCardProps) {
           <FileText className="h-3.5 w-3.5" />
           {entry.stats.totalPages} pages
         </span>
+      </div>
       </div>
     </Link>
   );

@@ -2,20 +2,27 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Bot, Clock, FolderTree, FileText, Search, ChevronRight } from "lucide-react";
 import { TagBadge } from "@/components/ui/tag-badge";
 import { StarButton } from "./star-button";
 import type { RegistryEntry } from "@/types";
 
 function CabinetListItem({ entry }: { entry: RegistryEntry }) {
-  const firstEmoji = entry.agents[0]?.emoji || "";
-
   return (
     <Link
       href={`/cabinet/${entry.slug}`}
-      className="group flex items-center gap-5 rounded-xl border border-border bg-bg-card px-5 py-4 card-hover"
+      className="group flex items-center gap-4 rounded-xl border border-border bg-bg-card pr-5 py-3 pl-3 card-hover"
     >
-      {firstEmoji && <span className="text-2xl shrink-0">{firstEmoji}</span>}
+      <div className="relative shrink-0 w-24 sm:w-32 aspect-[16/9] overflow-hidden rounded-lg bg-bg-warm">
+        <Image
+          src={`/covers/${entry.slug}.jpg`}
+          alt={entry.meta.name}
+          fill
+          sizes="128px"
+          className="object-cover"
+        />
+      </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
